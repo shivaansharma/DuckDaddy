@@ -71,45 +71,8 @@ const achievements = [
       </svg>
     )
   },
-  { 
-    title: "Doom Porting", 
-    description: "Successfully ported the classic Doom game to unusual devices, including vintage calculators.",
-    color: "from-amber-500 to-orange-500",
-    icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
-        <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path>
-        <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path>
-        <path d="M4 22h16"></path>
-        <path d="M10 14.66V17c0 .55-.47 1-1 1H7c-.55 0-1-.45-1-1v-2.34"></path>
-        <path d="M18 14.66V17c0 .55-.47 1-1 1h-2c-.55 0-1-.45-1-1v-2.34"></path>
-        <path d="M12 2v10"></path>
-        <path d="M12 12c-1.39 0-2.78-.47-4-1.32-1.37-.96-2.76.32-2 1.32 1.88 2.47 5.55 2.84 8 0 .76-1-1.08-1.32-2-1.32Z"></path>
-      </svg>
-    )
-  },
-  { 
-    title: "Technical Workshop Leader", 
-    description: "Led coding workshops for students, teaching web development fundamentals and modern JavaScript frameworks.",
-    color: "from-rose-500 to-red-500",
-    icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
-        <path d="M3 15v4c0 1.1.9 2 2 2h14a2 2 0 0 0 2-2v-4M17 8l-5-5-5 5M12 4v16"></path>
-      </svg>
-    )
-  },
-  { 
-    title: "Hyundai Internship Prep", 
-    description: "Prepared extensively for the competitive Hyundai Motors India Ltd Campus Placement Drive.",
-    color: "from-red-500 to-pink-500",
-    icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
-        <circle cx="12" cy="12" r="10"></circle>
-        <path d="M8 14s1.5 2 4 2 4-2 4-2"></path>
-        <line x1="9" y1="9" x2="9.01" y2="9"></line>
-        <line x1="15" y1="9" x2="15.01" y2="9"></line>
-      </svg>
-    )
-  },
+  
+  
 ];
 
 const container = {
@@ -138,7 +101,8 @@ const item = {
 
 export default function Achievement() {
   return (
-    <div className="flex flex-col items-center justify-center relative">
+    <section className="h-screen md:h-auto overflow-y-auto md:overflow-y-visible">
+    <div className="flex flex-col items-center justify-start relative min-h-[100dvh] overflow-y-auto md:overflow-y-visible px-4 py-10">
       {/* Decorative gradient orbs */}
       <div className="absolute -top-40 -left-40 w-80 h-80 bg-purple-500 rounded-full opacity-20 blur-3xl"></div>
       <div className="absolute -bottom-40 -right-40 w-80 h-80 bg-blue-500 rounded-full opacity-20 blur-3xl"></div>
@@ -211,5 +175,6 @@ export default function Achievement() {
         ))}
       </motion.div>
     </div>
+    </section>
   );
 }

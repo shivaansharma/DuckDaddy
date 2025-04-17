@@ -234,43 +234,59 @@ export function SidebarDemo() {
   };
   
   // Navigation links
-  const links = [
-    {
-      label: "Home",
-      href: "#",
-      id: "home",
-      onClick: () => setClicked("home"),
-      icon: <IconHome className="h-5 w-5 shrink-0 text-neutral-700 dark:text-neutral-200" />,
+  // Update the links array to close the sidebar on mobile when clicking
+const links = [
+  {
+    label: "Home",
+    href: "#",
+    id: "home",
+    onClick: () => {
+      setClicked("home");
+      setOpen(false); // Close sidebar on mobile
     },
-    {
-      label: "Projects",
-      href: "#",
-      id: "exp",
-      onClick: () => setClicked("project"),
-      icon: <IconBriefcase className="h-5 w-5 shrink-0 text-neutral-700 dark:text-neutral-200" />,
+    icon: <IconHome className="h-5 w-5 shrink-0 text-neutral-700 dark:text-neutral-200" />,
+  },
+  {
+    label: "Projects",
+    href: "#",
+    id: "exp",
+    onClick: () => {
+      setClicked("project");
+      setOpen(false); // Close sidebar on mobile
     },
-    {
-      label: "Experience",
-      href: "#",
-      id: "proj",
-      onClick: () => setClicked("exp"),
-      icon: <IconUserBolt className="h-5 w-5 shrink-0 text-neutral-700 dark:text-neutral-200" />,
+    icon: <IconBriefcase className="h-5 w-5 shrink-0 text-neutral-700 dark:text-neutral-200" />,
+  },
+  {
+    label: "Experience",
+    href: "#",
+    id: "proj",
+    onClick: () => {
+      setClicked("exp");
+      setOpen(false); // Close sidebar on mobile
     },
-    {
-      label: "Achievements",
-      href: "#",
-      id: "ach",
-      onClick: () => setClicked("ach"),
-      icon: <IconTrophy className="h-5 w-5 shrink-0 text-neutral-700 dark:text-neutral-200" />,
+    icon: <IconUserBolt className="h-5 w-5 shrink-0 text-neutral-700 dark:text-neutral-200" />,
+  },
+  {
+    label: "Achievements",
+    href: "#",
+    id: "ach",
+    onClick: () => {
+      setClicked("ach");
+      setOpen(false); // Close sidebar on mobile
     },
-    {
-      label: "Contact Me",
-      href: "#",
-      id: "contact",
-      onClick: () => setClicked("contact"),
-      icon: <IconMail className="h-5 w-5 shrink-0 text-neutral-700 dark:text-neutral-200" />,
+    icon: <IconTrophy className="h-5 w-5 shrink-0 text-neutral-700 dark:text-neutral-200" />,
+  },
+  {
+    label: "Contact Me",
+    href: "#",
+    id: "contact",
+    onClick: () => {
+      setClicked("contact");
+      setOpen(false); // Close sidebar on mobile
     },
-  ];
+    icon: <IconMail className="h-5 w-5 shrink-0 text-neutral-700 dark:text-neutral-200" />,
+  },
+];
 
   // Calculate pet mood based on happiness and hunger
   const petMood = () => {
@@ -466,56 +482,64 @@ export function SidebarDemo() {
           <div className="flex flex-col gap-2">
             {/* Petting Zoo Button */}
             <SidebarLink
-              link={{
-                label: "Petting Zoo",
-                href: "#",
-                onClick: togglePetZoo,
-                icon: partyMode ? (
-                  <motion.div variants={danceAnimation} animate="dance">
-                    <IconPaw className="h-5 w-5 shrink-0 text-neutral-700 dark:text-neutral-200" />
-                  </motion.div>
-                ) : (
-                  <IconPaw className="h-5 w-5 shrink-0 text-neutral-700 dark:text-neutral-200" />
-                ),
-              }}
-            />
+  link={{
+    label: "Petting Zoo",
+    href: "#",
+    onClick: () => {
+      togglePetZoo();
+      setOpen(false); // Close sidebar on mobile
+    },
+    icon: partyMode ? (
+      <motion.div variants={danceAnimation} animate="dance">
+        <IconPaw className="h-5 w-5 shrink-0 text-neutral-700 dark:text-neutral-200" />
+      </motion.div>
+    ) : (
+      <IconPaw className="h-5 w-5 shrink-0 text-neutral-700 dark:text-neutral-200" />
+    ),
+  }}
+/>
             
             {/* Party Mode Button */}
             <SidebarLink
-              link={{
-                label: partyMode ? "End Party" : "Party Mode",
-                href: "#",
-                onClick: togglePartyMode,
-                icon: partyMode ? (
-                  <motion.div variants={danceAnimation} animate="dance">
-                    <IconConfetti className="h-5 w-5 shrink-0 text-pink-500" />
-                  </motion.div>
-                ) : (
-                  <IconConfetti className="h-5 w-5 shrink-0 text-neutral-700 dark:text-neutral-200" />
-                ),
-              }}
-            />
-            
+  link={{
+    label: partyMode ? "End Party" : "Party Mode",
+    href: "#",
+    onClick: () => {
+      togglePartyMode();
+      setOpen(false); // Close sidebar on mobile
+    },
+    icon: partyMode ? (
+      <motion.div variants={danceAnimation} animate="dance">
+        <IconConfetti className="h-5 w-5 shrink-0 text-pink-500" />
+      </motion.div>
+    ) : (
+      <IconConfetti className="h-5 w-5 shrink-0 text-neutral-700 dark:text-neutral-200" />
+    ),
+  }}
+/>
             {/* Dark Mode Toggle */}
             <SidebarLink
-              link={{
-                label: darkMode ? "Light Mode" : "Dark Mode",
-                href: "#",
-                onClick: toggleDarkMode,
-                icon: partyMode ? (
-                  <motion.div variants={danceAnimation} animate="dance">
-                    {darkMode ? 
-                      <IconSun className="h-5 w-5 shrink-0 text-neutral-700 dark:text-neutral-200" /> : 
-                      <IconMoon className="h-5 w-5 shrink-0 text-neutral-700 dark:text-neutral-200" />
-                    }
-                  </motion.div>
-                ) : (
-                  darkMode ? 
-                  <IconSun className="h-5 w-5 shrink-0 text-neutral-700 dark:text-neutral-200" /> : 
-                  <IconMoon className="h-5 w-5 shrink-0 text-neutral-700 dark:text-neutral-200" />
-                ),
-              }}
-            />
+  link={{
+    label: darkMode ? "Light Mode" : "Dark Mode",
+    href: "#",
+    onClick: () => {
+      toggleDarkMode();
+      setOpen(false); // Close sidebar on mobile
+    },
+    icon: partyMode ? (
+      <motion.div variants={danceAnimation} animate="dance">
+        {darkMode ? 
+          <IconSun className="h-5 w-5 shrink-0 text-neutral-700 dark:text-neutral-200" /> : 
+          <IconMoon className="h-5 w-5 shrink-0 text-neutral-700 dark:text-neutral-200" />
+        }
+      </motion.div>
+    ) : (
+      darkMode ? 
+      <IconSun className="h-5 w-5 shrink-0 text-neutral-700 dark:text-neutral-200" /> : 
+      <IconMoon className="h-5 w-5 shrink-0 text-neutral-700 dark:text-neutral-200" />
+    ),
+  }}
+/>
           </div>
         </SidebarBody>
       </Sidebar>
@@ -686,7 +710,9 @@ export function SidebarDemo() {
                 transition={{ duration: 0.5, ease: "easeInOut" }}
                 className="relative z-10"
               >
-                <Achievement/>
+             
+  <Achievement />
+
               </motion.div>
             )} 
             {clicked === "contact" && (

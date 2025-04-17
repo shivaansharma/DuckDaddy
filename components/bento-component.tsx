@@ -280,7 +280,8 @@ export function BentoGridThirdDemo() {
   const ref = useOutsideClick(() => setActiveItem(null));
   return (
     <>
-      <BentoGrid className="md:auto-rows-[20rem]">
+    <div className="overflow-y-auto max-h-screen">
+    <BentoGrid className="md:auto-rows-[20rem]">
         {items.map((item, i) => (
           <BentoGridItem
             key={i}
@@ -304,6 +305,9 @@ export function BentoGridThirdDemo() {
           />
         ))}
       </BentoGrid>
+  {/* Your grid or content here */}
+</div>
+      
       <AnimatePresence>
         {activeItem !== null && items[activeItem].title !== "Tech Stack used" && (
           <motion.div className="fixed inset-0 bg-black/50 backdrop-blur z-50 flex items-center justify-center p-4">
@@ -385,7 +389,7 @@ const items = [
         <p>• Trained on the MNIST dataset with customizable epochs, learning rate, and layers</p>
         <p>• Achieved high accuracy through techniques like weight initialization and ReLU activation</p>
         <p>• Includes a drawing canvas for real-time digit prediction via a web interface</p>
-        <a href="https://github.com/shivaansharma/Hand_written_digit_recogniton" className="text-blue-500 block">GitHub Repository →</a>
+        <a href="#" className="text-blue-500 block">GitHub Repository →</a>
       </div>
     )
   },
@@ -401,7 +405,7 @@ const items = [
         <p>• Users can browse songs, create playlists, and stream audio in real-time</p>
         <p>• Includes user authentication, playlist management, and media player controls</p>
         <p>• Designed responsive UI with basic styling for desktop and mobile</p>
-        <a href="https://github.com/shivaansharma/spotify_clone" className="text-blue-500 block">GitHub Repository →</a>
+        <a href="#" className="text-blue-500 block">GitHub Repository →</a>
       </div>
     )
   },

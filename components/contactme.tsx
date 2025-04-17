@@ -96,10 +96,11 @@ export default function ContactMe() {
     return (
         <>
             {/* Decorative elements */}
+            <section className="h-screen md:h-auto overflow-y-auto md:overflow-y-visible">
             <div className="absolute -top-24 -right-24 w-64 h-64 bg-purple-500 rounded-full opacity-10 blur-3xl "></div>
             <div className="absolute -bottom-24 -left-24 w-64 h-64 bg-blue-500 rounded-full opacity-10 blur-3xl"></div>
             
-            <div className="max-w-6xl w-full mx-auto z-10">
+            <div className="max-w-6xl w-full mx-auto z-10 overflow-y-auto md:overflow-y-visible">
                 <div className="text-center mb-12">
                     <motion.h1 
                         initial={{ opacity: 0, y: -20 }}
@@ -257,6 +258,7 @@ export default function ContactMe() {
                     </motion.div>
                 </div>
             </div>
+            </section>
         </>
     );
 }

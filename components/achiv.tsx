@@ -101,8 +101,8 @@ const item = {
 
 export default function Achievement() {
   return (
-    <section className="h-screen md:h-auto overflow-y-auto md:overflow-y-visible">
-    <div className="flex flex-col items-center justify-start relative min-h-[100dvh] overflow-y-auto md:overflow-y-visible px-4 py-10">
+    <section className=" md:h-auto ">
+    <div className="flex flex-col items-center justify-start relative overflow-y-auto max-h-screen md:overflow-y-visible px-4 py-10">
       {/* Decorative gradient orbs */}
       <div className="absolute -top-40 -left-40 w-80 h-80 bg-purple-500 rounded-full opacity-20 blur-3xl"></div>
       <div className="absolute -bottom-40 -right-40 w-80 h-80 bg-blue-500 rounded-full opacity-20 blur-3xl"></div>

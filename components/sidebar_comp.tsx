@@ -10,7 +10,7 @@ import {
   IconMoon,
   IconSun,
   IconDownload,
-  IconClock,
+  IconSettingsHeart,
   IconConfetti,
   IconPaw,
   IconHeart,
@@ -23,6 +23,7 @@ import { BackgroundLinesDemo } from "./home";
 import { AuroraBackgroundDemo } from "./exp";
 import Achievement from "./achiv";
 import ContactMe from "./contactme";
+import SkillComponent from "./skills";
 
 export function SidebarDemo() {
   // Core states
@@ -165,6 +166,7 @@ export function SidebarDemo() {
     setHappiness(100);
     setHunger(100);
     setPetZooOpen(false);
+    setOpen(true)
   };
   
   const togglePetZoo = () => {
@@ -247,6 +249,16 @@ const links = [
     icon: <IconHome className="h-5 w-5 shrink-0 text-neutral-700 dark:text-neutral-200" />,
   },
   {
+    label: "Skills",
+    href: "#",
+    id: "Skills", // ID has capital S
+    onClick: () => {
+      setClicked("Skills"); // But here you're setting lowercase "skills"
+      setOpen(false);
+    },
+    icon: <IconSettingsHeart className="h-5 w-5 shrink-0 text-neutral-700 dark:text-neutral-200" />,
+  },
+  {
     label: "Projects",
     href: "#",
     id: "exp",
@@ -286,6 +298,7 @@ const links = [
     },
     icon: <IconMail className="h-5 w-5 shrink-0 text-neutral-700 dark:text-neutral-200" />,
   },
+  
 ];
 
   // Calculate pet mood based on happiness and hunger
@@ -677,6 +690,18 @@ const links = [
                 <BackgroundLinesDemo />
               </motion.div>
             )}
+            {clicked === "Skills" && ( 
+  <motion.div
+    key="Skills"
+    initial={{ y: 50, opacity: 0 }}
+    animate={{ y: 0, opacity: 1 }}
+    exit={{ y: -50, opacity: 0 }}
+    transition={{ duration: 0.5, ease: "easeInOut" }}
+    className="relative z-10"
+  >
+    <SkillComponent/>
+  </motion.div>
+)}
             {clicked === "project" && (
               <motion.div
                 key="project"

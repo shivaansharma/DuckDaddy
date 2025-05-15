@@ -3,7 +3,8 @@ import { BackgroundLines } from "./ui/backGroundLines";
 
 export function BackgroundLinesDemo() {
   return (
-    <BackgroundLines className="flex items-center justify-center w-full flex-col min-h-screen pointer-events-none px-4 sm:px-6 lg:px-8">
+   <div className="">
+     <BackgroundLines className="flex items-center justify-center w-full flex-col min-h-screen pointer-events-none px-4 sm:px-6 lg:px-8">
       <div className="text-center">
         <h2 className="bg-clip-text text-transparent bg-gradient-to-b from-neutral-900 to-neutral-700 dark:from-neutral-600 dark:to-white text-2xl sm:text-3xl md:text-4xl lg:text-7xl font-sans py-2 md:py-10 relative z-20 font-bold tracking-tight">
           Shivaan Sharma
@@ -13,5 +14,6 @@ export function BackgroundLinesDemo() {
         </p>
       </div>
     </BackgroundLines>
+   </div>
   );
 }

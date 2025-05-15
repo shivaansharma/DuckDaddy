@@ -182,7 +182,7 @@ export function SidebarDemo() {
   };
   
   const handleDownloadCV = () => {
-    const cvUrl = "https://drive.google.com/file/d/1vEW7SsAPjZ0lPDnUllHRpXjM5PTiylWB/view?usp=sharing";
+    const cvUrl = "https://drive.google.com/file/d/1hX8UAGAc71tyry6QtVAtfebAGMeUHj_r/view?usp=sharing";
     const link = document.createElement("a");
     link.href = cvUrl;
     link.download = "my-cv.pdf";
@@ -669,7 +669,7 @@ const links = [
 
       {/* Main content area */}
       <div className="flex flex-1">
-        <div className="flex h-full w-full flex-1 flex-col gap-2 rounded-tl-2xl border border-neutral-200 bg-white p-2 md:p-10 dark:border-neutral-700 dark:bg-neutral-900">
+        <div className="flex flex-1 flex-col gap-2 rounded-tl-2xl border border-neutral-200 bg-white p-2 md:p-10 dark:border-neutral-700 dark:bg-neutral-900">
           {partyMode && (
             <motion.div 
               className="absolute inset-0 z-0 opacity-20 pointer-events-none"

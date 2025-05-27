@@ -182,7 +182,7 @@ export function SidebarDemo() {
   };
   
   const handleDownloadCV = () => {
-    const cvUrl = "https://drive.google.com/file/d/1hX8UAGAc71tyry6QtVAtfebAGMeUHj_r/view?usp=sharing";
+    const cvUrl = "https://drive.google.com/file/d/1VLn1W8goDFpBS3koGNAzKFiTN-meQX2j/view?usp=sharing";
     const link = document.createElement("a");
     link.href = cvUrl;
     link.download = "my-cv.pdf";

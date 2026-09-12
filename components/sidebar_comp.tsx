@@ -1,6 +1,7 @@
 "use client";
 import React, { useState, useEffect, useRef } from "react";
 import { Sidebar, SidebarBody, SidebarLink } from "./ui/sidebar_ui";
+import { Test } from "./test";
 import {
   IconHome,
   IconBriefcase,
@@ -26,6 +27,7 @@ import ContactMe from "./contactme";
 import SkillComponent from "./skills";
 
 export function SidebarDemo() {
+  const [hovered, setHovered] = useState(false);
   // Core states
   const [clicked, setClicked] = useState("home");
   const [darkMode, setDarkMode] = useState(false);
@@ -44,15 +46,69 @@ export function SidebarDemo() {
   
   // Available pets
   const availablePets = [
-    { emoji: "🐢", type: "turtle" },
-    { emoji: "🐱", type: "cat" },
-    { emoji: "🦙", type: "llama" },
-    { emoji: "🦄", type: "unicorn" },
-    { emoji: "🐰", type: "rabbit" },
-    { emoji: "🧸", type: "teddy" },
-    { emoji: "🐥", type: "duck" }, // Easter egg
-    { emoji: "🐶", type: "dog" },
-    { emoji: "🦖", type: "t-rex" }
+  {
+  emoji: "🐓",
+  type: "cock",
+ animationType: "sheet",
+  url: "/Chicken_Sprite_Sheet.png",
+
+  scale: 3,
+
+  sheetWidth: 128,
+  sheetHeight: 128,
+
+  columns: 4,
+  rows: 4,
+
+  startFrame: 0,
+  numberOfFrames: 4,
+  row: 0
+},
+     {
+    emoji: "🐱",
+    type: "Pussy",
+    url: "/black_1.png",
+    scale: 4,
+     animationType: "sheet",
+
+    sheetWidth: 1024,
+    sheetHeight: 544,
+    columns: 32,
+    rows: 17,
+      c : 2,
+    startFrame: 4,
+    numberOfFrames: 4,
+    row: 1
+  },
+
+     {
+    emoji: "🦀",
+    type: "Kekda",
+    url: "/crab/Idle 01.png",
+    animationType:"frames",
+
+  frames:[
+    "/crab/Idle 01.png",
+    "/crab/Idle 02.png",
+    "/crab/Idle 03.png",
+    "/crab/Idle 04.png",
+     "/crab/Idle 05.png",
+      "/crab/Idle 06.png",
+       "/crab/Idle 07.png",
+        "/crab/Idle 08.png",
+        "/crab/Idle 09.png",
+  ],
+
+  c : 2,
+  scale:4,
+  },
+    // { emoji: "🦙", type: "llama" },
+    // { emoji: "🦄", type: "unicorn" },
+    // { emoji: "🐰", type: "rabbit" },
+    // { emoji: "🧸", type: "teddy" },
+    // { emoji: "🐥", type: "duck" }, // Easter egg
+    // { emoji: "🐶", type: "dog" },
+    // { emoji: "🦖", type: "t-rex" }
   ];
   
   // Duck coding advice
@@ -421,15 +477,38 @@ const links = [
                     
                     {/* Pet display */}
                     <div className="relative flex items-center justify-center h-16 bg-gray-100 dark:bg-neutral-800 rounded-lg">
-                      <motion.div
-                        className="text-4xl cursor-pointer"
-                        onClick={petYourPet}
-                        animate={petAnimation || petMood()}
-                        variants={petAnimationVariants}
-                        whileHover={{ scale: 1.1 }}
-                      >
-                        {currentPet.emoji}
-                      </motion.div>
+                     <motion.div
+  className="text-4xl cursor-pointer"
+  onClick={petYourPet}
+  onHoverStart={() => setHovered(true)}
+  onHoverEnd={() => setHovered(false)}
+  animate={petAnimation || petMood()}
+  variants={petAnimationVariants}
+  whileHover={{ scale: 1.1 }}
+>
+  <Test
+    type={currentPet.animationType}
+
+    // Sprite sheet
+    url={currentPet.url}
+    sheetWidth={currentPet.sheetWidth}
+    sheetHeight={currentPet.sheetHeight}
+    columns={currentPet.columns}
+    rows={currentPet.rows}
+
+    // Multiple PNGs
+    frames={currentPet.frames}
+    imageWidth={currentPet.imageWidth}
+    imageHeight={currentPet.imageHeight}
+    c = {currentPet.c}
+    // Animation
+    scale={currentPet.scale}
+    startFrame={currentPet.startFrame}
+    numberOfFrames={currentPet.numberOfFrames}
+    row={currentPet.row}
+    playing={hovered}
+  />
+</motion.div>
                       
                       {/* Pet speech bubble */}
                       <AnimatePresence>

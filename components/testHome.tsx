@@ -95,7 +95,7 @@ function RunningCowboy() {
 
         top: "-120px",
 
-        backgroundImage: "url('/run.png')",
+        backgroundImage: "url('/Run.png')",
         backgroundRepeat: "no-repeat",
         backgroundPosition: `-${frame * 128}px 0px`,
         imageRendering: "pixelated",
